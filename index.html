@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucky Penny BarberShop | Precision & Tradition</title>
+    <title>Lucky Penny BarberShop | Walk-Ins Welcome</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -11,6 +11,7 @@
             --copper: #b87333;
             --cream: #fcfaf5;
             --white: #ffffff;
+            --gold-leaf: #d4af37;
         }
 
         * {
@@ -34,51 +35,45 @@
         nav {
             background: var(--charcoal);
             color: var(--white);
-            padding: 1rem 5%;
+            padding: 1.2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 2px solid var(--copper);
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: var(--copper);
             font-weight: 700;
             text-decoration: none;
+            letter-spacing: 1px;
         }
 
         .nav-links a {
             color: var(--white);
             text-decoration: none;
-            margin-left: 20px;
-            font-size: 0.9rem;
+            margin-left: 25px;
+            font-size: 0.85rem;
             text-transform: uppercase;
-        }
-
-        .cta-btn {
-            background: var(--copper);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: bold;
+            letter-spacing: 1px;
             transition: 0.3s;
         }
 
-        .cta-btn:hover {
-            background: #a05a28;
+        .nav-links a:hover {
+            color: var(--copper);
         }
 
         /* Hero Section */
         header.hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80&w=1470');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&q=80&w=1470');
             background-size: cover;
             background-position: center;
-            height: 80vh;
+            height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -88,55 +83,108 @@
             padding: 0 20px;
         }
 
-        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; max-width: 600px; margin-bottom: 2rem; }
+        .hero h1 { font-size: 3.8rem; margin-bottom: 0.5rem; color: var(--white); }
+        .hero p { font-size: 1.3rem; max-width: 700px; margin-bottom: 2.5rem; font-weight: 300; }
+
+        /* Walk-in Badge */
+        .walk-in-badge {
+            background: var(--copper);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+        }
+
+        .address-hero {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.4rem;
+            color: var(--gold-leaf);
+        }
 
         /* Services Section */
         .services {
-            padding: 80px 10%;
+            padding: 100px 10%;
             text-align: center;
         }
 
-        .services h2 { margin-bottom: 40px; font-size: 2.5rem; }
+        .services h2 { margin-bottom: 10px; font-size: 2.8rem; }
+        .subtitle { margin-bottom: 50px; color: #777; font-style: italic; }
 
         .service-table {
             width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
             border-collapse: collapse;
-            margin-top: 20px;
             background: white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
         }
 
         .service-table th, .service-table td {
-            padding: 20px;
+            padding: 25px;
             border-bottom: 1px solid #eee;
             text-align: left;
         }
 
-        .service-table th { background: var(--charcoal); color: white; }
-        .price { color: var(--copper); font-weight: bold; text-align: right; }
+        .service-table th { background: var(--charcoal); color: white; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+        .price { color: var(--copper); font-weight: 700; text-align: right; font-size: 1.2rem; }
 
-        /* Contact/Footer */
+        /* Footer / Contact */
         footer {
             background: var(--charcoal);
             color: white;
-            padding: 60px 5% 20px;
+            padding: 80px 5% 30px;
             text-align: center;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .footer-item h3 { color: var(--copper); margin-bottom: 15px; }
+        .footer-item h3 { color: var(--copper); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-item p { font-size: 1.1rem; color: #ccc; line-height: 1.8; }
 
-        /* Responsive */
+        .phone-link {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .phone-link:hover { color: var(--copper); }
+
+        /* Map Placeholder */
+        .map-box {
+            background: #333;
+            height: 200px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            margin-top: 20px;
+            border: 1px dashed #555;
+        }
+
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .nav-links { display: none; }
+            .service-table th:nth-child(2), .service-table td:nth-child(2) { display: none; } /* Hide description on mobile for space */
         }
     </style>
 </head>
@@ -146,24 +194,26 @@
         <a href="#" class="logo">LUCKY PENNY</a>
         <div class="nav-links">
             <a href="#services">Services</a>
-            <a href="#about">About</a>
-            <a href="#contact" class="cta-btn">Book Now</a>
+            <a href="#location">Hours & Location</a>
+            <a href="tel:5550123456" style="color: var(--copper); font-weight: bold;">(555) 012-3456</a>
         </div>
     </nav>
 
     <header class="hero">
-        <h1>Look Like a Million Bucks</h1>
-        <p>Precision cuts and traditional hot-towel shaves in a relaxed, modern atmosphere.</p>
-        <a href="#contact" class="cta-btn" style="padding: 15px 40px; font-size: 1.1rem;">Secure Your Chair</a>
+        <div class="walk-in-badge">Walk-Ins Only</div>
+        <h1>No Appointment Needed.</h1>
+        <p>Expert grooming for the modern gentleman. Just show up, sign the list, and grab a seat.</p>
+        <div class="address-hero">123 Barber Street, Downtown District</div>
     </header>
 
     <section id="services" class="services">
-        <h2>Our Services</h2>
+        <h2>Service Menu</h2>
+        <p class="subtitle">Premium quality without the waitlist</p>
         <table class="service-table">
             <thead>
                 <tr>
                     <th>Service</th>
-                    <th>What's Included</th>
+                    <th>Details</th>
                     <th style="text-align: right;">Price</th>
                 </tr>
             </thead>
@@ -192,23 +242,28 @@
         </table>
     </section>
 
-    <footer id="contact">
+    <footer id="location">
         <div class="footer-grid">
             <div class="footer-item">
-                <h3>Visit Us</h3>
+                <h3>Find Us</h3>
                 <p>123 Barber Street<br>Downtown District, ST 12345</p>
+                <div class="map-box">Google Map Integration Here</div>
             </div>
             <div class="footer-item">
-                <h3>Hours</h3>
-                <p>Tue - Fri: 9am - 7pm<br>Sat: 8am - 4pm<br>Sun/Mon: Closed</p>
+                <h3>Our Hours</h3>
+                <p><strong>Tue - Fri:</strong> 9:00 AM - 7:00 PM</p>
+                <p><strong>Saturday:</strong> 8:00 AM - 4:00 PM</p>
+                <p><strong>Sun - Mon:</strong> Closed</p>
+                <p style="margin-top: 20px; font-size: 0.9rem; color: var(--copper);">*Last walk-in accepted 30 mins before close.</p>
             </div>
             <div class="footer-item">
-                <h3>Contact</h3>
-                <p>Phone: (555) 012-3456<br>Email: hello@luckypenny.com</p>
+                <h3>Check the Wait</h3>
+                <p>Give us a ring to see how many people are currently in the chair.</p>
+                <a href="tel:5550123456" class="phone-link">(555) 012-3456</a>
             </div>
         </div>
-        <hr style="border: 0; border-top: 1px solid #444; margin-bottom: 20px;">
-        <p>&copy; 2026 Lucky Penny Barbershop. All Rights Reserved.</p>
+        <hr style="border: 0; border-top: 1px solid #444; margin-bottom: 25px;">
+        <p style="font-size: 0.8rem; color: #777;">&copy; 2026 Lucky Penny Barbershop. All Rights Reserved.</p>
     </footer>
 
 </body>
