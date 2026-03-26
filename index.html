@@ -17,7 +17,7 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Montserrat', sans-serif; color: var(--charcoal); background-color: var(--cream); }
+        body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: var(--charcoal); background-color: var(--cream); }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
         nav {
@@ -29,7 +29,7 @@
             border-bottom: 2px solid var(--copper);
         }
 
-        .logo { font-size: 1.6rem; color: var(--copper); font-weight: 700; text-decoration: none; }
+        .logo { font-size: 1.6rem; color: var(--copper); font-weight: 700; text-decoration: none; letter-spacing: 1px; }
 
         header.hero {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
@@ -39,46 +39,58 @@
             color: white; text-align: center; padding: 0 20px;
         }
 
-        .hero h1 { font-size: 3.5rem; margin-bottom: 0.5rem; }
-        .walk-in-badge { background: var(--copper); color: white; padding: 12px 30px; border-radius: 50px; font-weight: 700; margin-bottom: 20px; }
+        .hero h1 { font-size: 3.8rem; margin-bottom: 0.5rem; }
+        .walk-in-badge { background: var(--copper); color: white; padding: 12px 30px; border-radius: 50px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; }
 
-        .services { padding: 80px 10%; text-align: center; }
-        
-        /* TABLE POP-OUT EFFECT */
+        .services { padding: 100px 10%; text-align: center; }
+        .services h2 { margin-bottom: 40px; font-size: 2.8rem; }
+
+        /* THE POP-OUT TABLE LOGIC */
         .service-table {
             width: 100%; max-width: 900px; margin: 0 auto;
-            border-collapse: separate; /* Required for the shadow effect */
-            border-spacing: 0 8px; /* Adds space between rows for the 'pop' */
+            border-collapse: separate; /* Required for the lift effect */
+            border-spacing: 0 10px; /* Gap between rows */
         }
 
-        .service-table th { padding: 15px 25px; text-align: left; color: #777; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .service-table th { padding: 10px 25px; text-align: left; color: #777; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
 
         .service-row {
             background: white;
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: default;
         }
 
-        /* The 'Pop-Out' Logic */
+        /* Hover Interaction */
         .service-row:hover {
-            transform: scale(1.02); /* Slightly grows the row */
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Adds depth */
-            background-color: var(--white);
-            position: relative;
+            transform: scale(1.03) translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
             z-index: 10;
+            position: relative;
         }
 
-        .service-row td { padding: 20px 25px; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; }
-        .service-row td:first-child { border-left: 1px solid #f0f0f0; border-radius: 8px 0 0 8px; }
-        .service-row td:last-child { border-right: 1px solid #f0f0f0; border-radius: 0 8px 8px 0; }
+        .service-row td { padding: 25px; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0; }
+        .service-row td:first-child { border-left: 1px solid #f0f0f0; border-radius: 10px 0 0 10px; }
+        .service-row td:last-child { border-right: 1px solid #f0f0f0; border-radius: 0 10px 10px 0; border-right: 4px solid var(--copper); }
 
-        .category-header { text-align: left; padding: 20px 10px 5px; color: var(--copper); font-weight: bold; font-family: 'Playfair Display', serif; font-size: 1.4rem; }
+        .category-row td { 
+            padding: 30px 10px 5px; 
+            font-family: 'Playfair Display', serif; 
+            font-size: 1.5rem; 
+            color: var(--copper); 
+            text-align: left;
+            font-weight: bold;
+        }
 
-        .price { color: var(--copper); font-weight: 700; text-align: right; font-size: 1.2rem; }
-        
+        .price { color: var(--copper); font-weight: 700; text-align: right; font-size: 1.4rem; }
+        .shampoo-note { display: block; font-size: 0.85rem; color: #888; margin-top: 4px; font-weight: 400; }
+
         footer { background: var(--charcoal); color: white; padding: 60px 5%; text-align: center; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1100px; margin: 0 auto; }
-        .phone-link { color: var(--white); text-decoration: none; font-size: 1.3rem; font-weight: 700; display: block; margin-top: 10px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; max-width: 1100px; margin: 0 auto; }
+        .phone-link { color: var(--white); text-decoration: none; font-size: 1.4rem; font-weight: 700; display: block; margin-top: 10px; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .service-table td:nth-child(2) { display: none; } /* Hide details on small screens */
+        }
     </style>
 </head>
 <body>
@@ -89,52 +101,60 @@
 
     <header class="hero">
         <div class="walk-in-badge">Walk-Ins Only</div>
-        <h1>Expert Grooming.</h1>
+        <h1>No Appointment Needed.</h1>
         <p>114 E Main St, Middleton, ID 83644</p>
     </header>
 
     <section id="services" class="services">
-        <h2 style="font-size: 2.5rem; margin-bottom: 40px;">Service Menu</h2>
+        <h2>Service Menu</h2>
         
         <table class="service-table">
             <thead>
                 <tr>
                     <th>Service</th>
+                    <th>Details</th>
                     <th style="text-align: right;">Price</th>
                 </tr>
             </thead>
             <tbody>
-                <tr><td colspan="2" class="category-header">Haircuts</td></tr>
+                <tr class="category-row"><td colspan="3">Haircuts</td></tr>
                 <tr class="service-row">
-                    <td><strong>Gentlemen's Cut</strong><br><small>Traditional tailored haircut and style.</small></td>
+                    <td><strong>Gentlemen's Cut</strong></td>
+                    <td>Traditional tailored haircut and style.</td>
                     <td class="price">$30</td>
                 </tr>
                 <tr class="service-row">
-                    <td><strong>Premium Cut</strong><br><small>Detailed haircut and style. (Add Shampoo for $5)</small></td>
+                    <td><strong>Premium Cut</strong><span class="shampoo-note">+ Add Shampoo for $5</span></td>
+                    <td>Detailed haircut and style.</td>
                     <td class="price">$35</td>
                 </tr>
                 <tr class="service-row">
-                    <td><strong>Kids Cut</strong><br><small>Ages 12 & under.</small></td>
+                    <td><strong>Kids Cut</strong></td>
+                    <td>Ages 12 & under.</td>
                     <td class="price">$25</td>
                 </tr>
 
-                <tr><td colspan="2" class="category-header">Beard Work</td></tr>
+                <tr class="category-row"><td colspan="3">Beard Work</td></tr>
                 <tr class="service-row">
-                    <td><strong>Express Beard Trim</strong><br><small>Quick cleanup and line-up.</small></td>
+                    <td><strong>Express Beard Trim</strong></td>
+                    <td>Quick cleanup and line-up.</td>
                     <td class="price">$15</td>
                 </tr>
                 <tr class="service-row">
-                    <td><strong>Full-Service Beard Trim</strong><br><small>Detailed shaping with hot towel treatment.</small></td>
+                    <td><strong>Full-Service Beard Trim</strong></td>
+                    <td>Detailed shaping with hot towel treatment.</td>
                     <td class="price">$25</td>
                 </tr>
 
-                <tr><td colspan="2" class="category-header">Shaves</td></tr>
+                <tr class="category-row"><td colspan="3">Shaves</td></tr>
                 <tr class="service-row">
-                    <td><strong>Full Face Shave</strong><br><small>Straight-razor shave with hot towels.</small></td>
+                    <td><strong>Full Face Shave</strong></td>
+                    <td>Traditional straight-razor shave with hot towels.</td>
                     <td class="price">$30</td>
                 </tr>
                 <tr class="service-row">
-                    <td><strong>Head Shave</strong><br><small>Smooth straight-razor shave for the scalp.</small></td>
+                    <td><strong>Head Shave</strong></td>
+                    <td>Smooth straight-razor shave for the scalp.</td>
                     <td class="price">$30</td>
                 </tr>
             </tbody>
