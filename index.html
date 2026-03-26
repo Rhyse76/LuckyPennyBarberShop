@@ -13,6 +13,7 @@
             --cream: #fcfaf5;
             --white: #ffffff;
             --gold-leaf: #d4af37;
+            --facebook-blue: #1877F2;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,6 +21,7 @@
         body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: var(--charcoal); background-color: var(--cream); }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
+        /* Navigation */
         nav {
             background: rgba(44, 44, 44, 0.95); 
             backdrop-filter: blur(8px);
@@ -30,7 +32,14 @@
         }
 
         .logo { font-size: 1.6rem; color: var(--copper); font-weight: 700; text-decoration: none; letter-spacing: 1px; }
+        
+        .nav-links a {
+            color: var(--white); text-decoration: none; margin-left: 25px;
+            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--copper); }
 
+        /* Hero Section */
         header.hero {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
                         url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&q=80&w=1470');
@@ -40,16 +49,18 @@
         }
 
         .hero h1 { font-size: 3.8rem; margin-bottom: 0.5rem; }
-        .walk-in-badge { background: var(--copper); color: white; padding: 12px 30px; border-radius: 50px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; }
+        .hero p { font-size: 1.3rem; max-width: 700px; margin-bottom: 2.5rem; font-weight: 300; }
+        .walk-in-badge { background: var(--copper); color: white; padding: 12px 30px; border-radius: 50px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
+        .address-hero { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.4rem; color: var(--gold-leaf); }
 
+        /* Services Section */
         .services { padding: 100px 10%; text-align: center; }
         .services h2 { margin-bottom: 40px; font-size: 2.8rem; }
 
-        /* THE POP-OUT TABLE LOGIC */
         .service-table {
             width: 100%; max-width: 900px; margin: 0 auto;
-            border-collapse: separate; /* Required for the lift effect */
-            border-spacing: 0 10px; /* Gap between rows */
+            border-collapse: separate;
+            border-spacing: 0 10px;
         }
 
         .service-table th { padding: 10px 25px; text-align: left; color: #777; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
@@ -59,7 +70,6 @@
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        /* Hover Interaction */
         .service-row:hover {
             transform: scale(1.03) translateY(-5px);
             box-shadow: 0 12px 24px rgba(0,0,0,0.1);
@@ -71,25 +81,34 @@
         .service-row td:first-child { border-left: 1px solid #f0f0f0; border-radius: 10px 0 0 10px; }
         .service-row td:last-child { border-right: 1px solid #f0f0f0; border-radius: 0 10px 10px 0; border-right: 4px solid var(--copper); }
 
-        .category-row td { 
-            padding: 30px 10px 5px; 
-            font-family: 'Playfair Display', serif; 
-            font-size: 1.5rem; 
-            color: var(--copper); 
-            text-align: left;
-            font-weight: bold;
-        }
-
+        .category-row td { padding: 30px 10px 5px; font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--copper); text-align: left; font-weight: bold; }
         .price { color: var(--copper); font-weight: 700; text-align: right; font-size: 1.4rem; }
         .shampoo-note { display: block; font-size: 0.85rem; color: #888; margin-top: 4px; font-weight: 400; }
 
-        footer { background: var(--charcoal); color: white; padding: 60px 5%; text-align: center; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; max-width: 1100px; margin: 0 auto; }
-        .phone-link { color: var(--white); text-decoration: none; font-size: 1.4rem; font-weight: 700; display: block; margin-top: 10px; }
+        /* Social CTA Section */
+        .social-cta { background-color: var(--white); padding: 80px 10%; text-align: center; border-top: 1px solid #eee; }
+        .social-cta h2 { font-size: 2.2rem; margin-bottom: 15px; }
+        .btn-group { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+        
+        .social-btn { display: inline-block; padding: 15px 35px; color: white; text-decoration: none; border-radius: 5px; font-weight: 700; transition: transform 0.3s ease; }
+        .social-btn:hover { transform: scale(1.05); }
+        .insta-btn { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+        .fb-btn { background-color: var(--facebook-blue); }
+
+        /* Footer */
+        footer { background: var(--charcoal); color: white; padding: 80px 5% 30px; text-align: center; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; max-width: 1200px; margin: 0 auto 60px; }
+        .footer-item h3 { color: var(--copper); margin-bottom: 20px; text-transform: uppercase; }
+        .footer-item p { font-size: 1.1rem; color: #ccc; }
+        
+        .phone-link, .social-footer { color: var(--white); text-decoration: none; font-size: 1.3rem; font-weight: 700; display: block; margin-top: 10px; transition: 0.3s; }
+        .phone-link:hover, .social-footer:hover { color: var(--copper); transform: scale(1.05); }
+        .map-box { height: 350px; width: 100%; margin-top: 20px; border-radius: 8px; overflow: hidden; border: 2px solid #444; }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            .service-table td:nth-child(2) { display: none; } /* Hide details on small screens */
+            .nav-links { display: none; }
+            .service-table td:nth-child(2) { display: none; }
         }
     </style>
 </head>
@@ -97,17 +116,22 @@
 
     <nav>
         <a href="#" class="logo">LUCKY PENNY BARBERSHOP</a>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#location">Hours & Location</a>
+            <a href="tel:+12086141408" style="color: var(--copper); font-weight: bold;">(208) 614-1408</a>
+        </div>
     </nav>
 
     <header class="hero">
         <div class="walk-in-badge">Walk-Ins Only</div>
         <h1>No Appointment Needed.</h1>
-        <p>114 E Main St, Middleton, ID 83644</p>
+        <p>Expert grooming for the modern gentleman. Just show up, and grab a seat.</p>
+        <div class="address-hero">114 E Main St, Middleton, ID 83644</div>
     </header>
 
     <section id="services" class="services">
         <h2>Service Menu</h2>
-        
         <table class="service-table">
             <thead>
                 <tr>
@@ -161,21 +185,42 @@
         </table>
     </section>
 
-    <footer>
+    <section class="social-cta">
+        <h2>Connect With Us</h2>
+        <p>Follow our shop for news, fresh cuts, and daily updates.</p>
+        <div class="btn-group">
+            <a href="https://www.instagram.com/luckypennybarbershop/" target="_blank" class="social-btn insta-btn">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="https://www.facebook.com/search/top?q=the%20lucky%20penny%20barbershop" target="_blank" class="social-btn fb-btn">
+                <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+        </div>
+    </section>
+
+    <footer id="location">
         <div class="footer-grid">
-            <div>
-                <h3>Location</h3>
-                <p>114 E Main St, Middleton, ID</p>
+            <div class="footer-item">
+                <h3>Find Us</h3>
+                <p>114 E Main St<br>Middleton, ID 83644</p>
+                <div class="map-box">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2884.2253896582496!2d-116.6186414!3d43.7058696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54ae376ec796836d%3A0x6a2d07525287e07a!2s114%20E%20Main%20St%2C%20Middleton%2C%20ID%2083644!5e0!3m2!1sen!2sus!4v1711484000000!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
             </div>
-            <div>
+            <div class="footer-item">
                 <h3>Hours</h3>
-                <p>Tue-Fri: 8:30am - 5:00pm<br>Sat: 8:30am - 4:00pm</p>
+                <p><strong>Tue - Fri:</strong> 8:30 AM - 5:00 PM</p>
+                <p><strong>Saturday:</strong> 8:30 AM - 4:00 PM</p>
+                <p><strong>Sun - Mon:</strong> Closed</p>
             </div>
-            <div>
+            <div class="footer-item">
                 <h3>Contact</h3>
-                <a href="tel:+12086141408" class="phone-link">(208) 614-1408</a>
+                <a href="tel:+12086141408" class="phone-link"><i class="fas fa-phone"></i> (208) 614-1408</a>
+                <a href="https://www.instagram.com/luckypennybarbershop/" target="_blank" class="social-footer"><i class="fab fa-instagram"></i> Instagram</a>
+                <a href="https://www.facebook.com/search/top?q=the%20lucky%20penny%20barbershop" target="_blank" class="social-footer"><i class="fab fa-facebook-square"></i> Facebook</a>
             </div>
         </div>
+        <p style="font-size: 0.8rem; color: #777;">© 2026 Lucky Penny Barbershop. All Rights Reserved.</p>
     </footer>
 
 </body>
