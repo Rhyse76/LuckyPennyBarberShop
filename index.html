@@ -1,270 +1,403 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lucky Penny BarberShop | Walk-Ins Welcome</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --charcoal: #2c2c2c;
-            --copper: #b87333;
-            --cream: #fcfaf5;
-            --white: #ffffff;
-            --gold-leaf: #d4af37;
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Penny BarberShop | Walk-Ins Welcome</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --charcoal: #2c2c2c;
+            --copper: #b87333;
+            --cream: #fcfaf5;
+            --white: #ffffff;
+            --gold-leaf: #d4af37;
+            --deep-burn: #1a0f00; /* Darker tone for wood burn */
+        }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-            color: var(--charcoal);
-            background-color: var(--cream);
-        }
+        html {
+            scroll-behavior: smooth;
+        }
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            background-color: var(--cream);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Custom Wood Burned Header */
+        .header-board {
+            background-color: #5d4037; /* Rustic wood base color */
+            /* Textures from transparent patterns often work best. For this specific request,
+               we are simulating the wood grain. For a real site, a high-quality image background
+               of an actual wood board is recommended for full realism. */
+            background-image: repeating-linear-gradient(
+                135deg,
+                rgba(0,0,0,0.03) 0px,
+                rgba(0,0,0,0.03) 2px,
+                transparent 2px,
+                transparent 4px
+            );
+            color: var(--deep-burn);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 8px solid #3e2723; /* Darker 'cut' edge */
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.5); /* Deepen the wood tone */
+            position: relative;
+        }
+
+        /* Burn effect simulation */
+        .header-board h1 {
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 700;
+            text-shadow: 
+                2px 2px 2px rgba(0,0,0,0.8), /* Inner shadow for 'burned in' depth */
+                0px 0px 15px rgba(184, 115, 51, 0.4); /* Faint heat glow/char charring */
+        }
 
         /* Navigation */
-        nav {
-            background: var(--charcoal);
-            color: var(--white);
-            padding: 1.2rem 5%;
+        nav {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--copper);
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            color: var(--copper);
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 1px;
+            font-family: 'Playfair Display', serif; /* Use serif for the burned brand logo */
+        }
+
+        .nav-links {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 2px solid var(--copper);
         }
 
-        .logo {
-            font-size: 1.6rem;
-            color: var(--copper);
-            font-weight: 700;
-            text-decoration: none;
-            letter-spacing: 1px;
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--copper);
+        }
+
+        /* Mobile Menu Toggle (Hamburger) */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 1100;
         }
 
-        .nav-links a {
-            color: var(--white);
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin-bottom: 5px;
+            background-color: var(--white);
+            border-radius: 3px;
             transition: 0.3s;
         }
 
-        .nav-links a:hover {
-            color: var(--copper);
-        }
+        /* Hero Section */
+        header.hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&q=80&w=1470');
+            background-size: cover;
+            background-position: center;
+            height: 70vh; /* Adjusted height slightly since wood header is now above */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
 
-        /* Hero Section */
-        header.hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&q=80&w=1470');
-            background-size: cover;
-            background-position: center;
-            height: 85vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            padding: 0 20px;
-        }
+        .hero h2 { font-size: 3.2rem; margin-bottom: 0.5rem; color: var(--white); }
+        .hero p { font-size: 1.3rem; max-width: 700px; margin-bottom: 2.5rem; font-weight: 300; }
 
-        .hero h1 { font-size: 3.8rem; margin-bottom: 0.5rem; color: var(--white); }
-        .hero p { font-size: 1.3rem; max-width: 700px; margin-bottom: 2.5rem; font-weight: 300; }
+        /* Walk-in Badge */
+        .walk-in-badge {
+            background: var(--copper);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+        }
 
-        /* Walk-in Badge */
-        .walk-in-badge {
-            background: var(--copper);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 1rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            margin-bottom: 20px;
-        }
+        .address-hero {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.4rem;
+            color: var(--gold-leaf);
+        }
 
-        .address-hero {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 1.4rem;
-            color: var(--gold-leaf);
-        }
+        /* Services Section */
+        .services {
+            padding: 100px 10%;
+            text-align: center;
+        }
 
-        /* Services Section */
-        .services {
-            padding: 100px 10%;
-            text-align: center;
-        }
+        .services h2 { margin-bottom: 10px; font-size: 2.8rem; }
+        .subtitle { margin-bottom: 50px; color: #777; font-style: italic; }
 
-        .services h2 { margin-bottom: 10px; font-size: 2.8rem; }
-        .subtitle { margin-bottom: 50px; color: #777; font-style: italic; }
+        .service-table {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
 
-        .service-table {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            border-collapse: collapse;
-            background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            border-radius: 8px;
+        .service-table th, .service-table td {
+            padding: 25px;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+        }
+
+        .service-table th { background: var(--charcoal); color: white; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+        .price { color: var(--copper); font-weight: 700; text-align: right; font-size: 1.2rem; }
+
+        /* Footer / Contact */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 80px 5% 30px;
+            text-align: center;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            margin-bottom: 60px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-item h3 { color: var(--copper); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .footer-item p { font-size: 1.1rem; color: #ccc; line-height: 1.8; }
+
+        .phone-link {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .phone-link:hover { color: var(--copper); }
+
+        /* Functional Map */
+        .map-box {
+            height: 250px;
+            width: 100%;
+            margin-top: 20px;
+            border: 2px solid #444;
+            border-radius: 4px;
             overflow: hidden;
-        }
+        }
 
-        .service-table th, .service-table td {
-            padding: 25px;
-            border-bottom: 1px solid #eee;
-            text-align: left;
-        }
-
-        .service-table th { background: var(--charcoal); color: white; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
-        .price { color: var(--copper); font-weight: 700; text-align: right; font-size: 1.2rem; }
-
-        /* Footer / Contact */
-        footer {
-            background: var(--charcoal);
-            color: white;
-            padding: 80px 5% 30px;
-            text-align: center;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 50px;
-            margin-bottom: 60px;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .footer-item h3 { color: var(--copper); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
-        .footer-item p { font-size: 1.1rem; color: #ccc; line-height: 1.8; }
-
-        .phone-link {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: 700;
-            display: block;
-            margin-top: 10px;
-        }
-
-        .phone-link:hover { color: var(--copper); }
-
-        /* Map Placeholder */
-        .map-box {
-            background: #333;
-            height: 200px;
+        .map-box iframe {
             width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            margin-top: 20px;
-            border: 1px dashed #555;
+            height: 100%;
+            border: 0;
         }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .nav-links { display: none; }
-            .service-table th:nth-child(2), .service-table td:nth-child(2) { display: none; } /* Hide description on mobile for space */
-        }
-    </style>
+        @media (max-width: 768px) {
+            .header-board h1 { font-size: 2.2rem; letter-spacing: 2px; }
+            .hero h2 { font-size: 2.5rem; }
+
+            /* Mobile Menu Styles */
+            .menu-toggle { display: flex; }
+
+            .nav-links {
+                display: none; /* Hidden by default on mobile */
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: var(--charcoal);
+                padding: 20px 0;
+                border-bottom: 2px solid var(--copper);
+            }
+
+            .nav-links.active {
+                display: flex; /* Shown when toggled */
+            }
+
+            .nav-links a {
+                margin: 10px 0;
+                font-size: 1rem;
+                padding: 10px 5%;
+                width: 100%;
+                text-align: left;
+            }
+
+            .service-table th:nth-child(2), .service-table td:nth-child(2) { display: none; } /* Hide description on mobile for space */
+        }
+    </style>
 </head>
 <body>
 
-    <nav>
-        <a href="#" class="logo">LUCKY PENNY BARBERSHOP</a>
-        <div class="nav-links">
-            <a href="#services">Services</a>
-            <a href="#location">Hours & Location</a>
-            <a href="tel:5550123456" style="color: var(--copper); font-weight: bold;">(555) 012-3456</a>
-        </div>
-    </nav>
+    <div class="header-board">
+        <h1>Lucky Penny BarberShop</h1>
+    </div>
 
-    <header class="hero">
-        <div class="walk-in-badge">Walk-Ins Only</div>
-        <h1>No Appointment Needed.</h1>
-        <p>Expert grooming for the modern gentleman. Just show up, and grab a seat.</p>
-        <div class="address-hero">123 Barber Street, Downtown District</div>
-    </header>
+    <nav>
+        <a href="#" class="logo">LUCKY PENNY</a>
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links" id="navLinks">
+            <a href="#services">Services</a>
+            <a href="#location">Hours & Location</a>
+            <a href="tel:5550123456" style="color: var(--copper); font-weight: bold;">(555) 012-3456</a>
+        </div>
+    </nav>
 
-    <section id="services" class="services">
-        <h2>Service Menu</h2>
-        <p class="subtitle">Premium quality without the waitlist</p>
-        <table class="service-table">
-            <thead>
-                <tr>
-                    <th>Service</th>
-                    <th>Details</th>
-                    <th style="text-align: right;">Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>The Classic Cut</strong></td>
-                    <td>Tailored haircut, neck shave, and style.</td>
-                    <td class="price">$35</td>
-                </tr>
-                <tr>
-                    <td><strong>Lucky Shave</strong></td>
-                    <td>Traditional straight-razor shave with hot towels.</td>
-                    <td class="price">$30</td>
-                </tr>
-                <tr>
-                    <td><strong>Beard Sculpt</strong></td>
-                    <td>Detailed shaping, trimming, and beard oil.</td>
-                    <td class="price">$20</td>
-                </tr>
-                <tr>
-                    <td><strong>The Works</strong></td>
-                    <td>Classic Cut + Lucky Shave + Scalp Massage.</td>
-                    <td class="price">$60</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+    <header class="hero">
+        <div class="walk-in-badge">Walk-Ins Only</div>
+        <h2>No Appointment Needed.</h2>
+        <p>Expert grooming for the modern gentleman. Just show up, and grab a seat.</p>
+        <div class="address-hero">123 Barber Street, Downtown District</div>
+    </header>
 
-    <footer id="location">
-        <div class="footer-grid">
-            <div class="footer-item">
-                <h3>Find Us</h3>
-                <p>123 Barber Street<br>Downtown District, ST 12345</p>
-                <div class="map-box">Google Map Integration Here</div>
-            </div>
-            <div class="footer-item">
-                <h3>Our Hours</h3>
-                <p><strong>Tue - Fri:</strong> 9:00 AM - 7:00 PM</p>
-                <p><strong>Saturday:</strong> 8:00 AM - 4:00 PM</p>
-                <p><strong>Sun - Mon:</strong> Closed</p>
-                <p style="margin-top: 20px; font-size: 0.9rem; color: var(--copper);">*Last walk-in accepted 30 mins before close.</p>
-            </div>
-            <div class="footer-item">
-                <h3>Check the Wait</h3>
-                <p>Give us a ring to see how many people are currently in the chair.</p>
-                <a href="tel:5550123456" class="phone-link">(555) 012-3456</a>
-            </div>
-        </div>
-        <hr style="border: 0; border-top: 1px solid #444; margin-bottom: 25px;">
-        <p style="font-size: 0.8rem; color: #777;">&copy; 2026 Lucky Penny Barbershop. All Rights Reserved.</p>
-    </footer>
+    <section id="services" class="services">
+        <h2>Service Menu</h2>
+        <p class="subtitle">Premium quality without the waitlist</p>
+        <table class="service-table">
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Details</th>
+                    <th style="text-align: right;">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>The Classic Cut</strong></td>
+                    <td>Tailored haircut, neck shave, and style.</td>
+                    <td class="price">$35</td>
+                </tr>
+                <tr>
+                    <td><strong>Lucky Shave</strong></td>
+                    <td>Traditional straight-razor shave with hot towels.</td>
+                    <td class="price">$30</td>
+                </tr>
+                <tr>
+                    <td><strong>Beard Sculpt</strong></td>
+                    <td>Detailed shaping, trimming, and beard oil.</td>
+                    <td class="price">$20</td>
+                </tr>
+                <tr>
+                    <td><strong>The Works</strong></td>
+                    <td>Classic Cut + Lucky Shave + Scalp Massage.</td>
+                    <td class="price">$60</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <footer id="location">
+        <div class="footer-grid">
+            <div class="footer-item">
+                <h3>Find Us</h3>
+                <p>123 Barber Street<br>Downtown District, ST 12345</p>
+                <div class="map-box">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.6175404165!2d-73.98785302341!3d40.748440471437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+            <div class="footer-item">
+                <h3>Our Hours</h3>
+                <p><strong>Tue - Fri:</strong> 9:00 AM - 7:00 PM</p>
+                <p><strong>Saturday:</strong> 8:00 AM - 4:00 PM</p>
+                <p><strong>Sun - Mon:</strong> Closed</p>
+                <p style="margin-top: 20px; font-size: 0.9rem; color: var(--copper);">*Last walk-in accepted 30 mins before close.</p>
+            </div>
+            <div class="footer-item">
+                <h3>Check the Wait</h3>
+                <p>Give us a ring to see how many people are currently in the chair.</p>
+                <a href="tel:5550123456" class="phone-link">(555) 012-3456</a>
+            </div>
+        </div>
+        <hr style="border: 0; border-top: 1px solid #444; margin-bottom: 25px;">
+        <p style="font-size: 0.8rem; color: #777;">&copy; 2026 Lucky Penny Barbershop. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.getElementById('navLinks');
+
+            menuToggle.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                
+                // Optional: Animate hamburger to X
+                menuToggle.classList.toggle('open');
+            });
+
+            // Close menu when a link is clicked
+            const links = navLinks.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('open');
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
