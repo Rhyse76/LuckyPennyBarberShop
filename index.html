@@ -12,17 +12,12 @@
             --cream: #fcfaf5;
             --white: #ffffff;
             --gold-leaf: #d4af37;
-            --deep-burn: #1a0f00; /* Darker tone for wood burn */
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
         }
 
         body {
@@ -36,43 +31,11 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* Custom Wood Burned Header */
-        .header-board {
-            background-color: #5d4037; /* Rustic wood base color */
-            /* Textures from transparent patterns often work best. For this specific request,
-               we are simulating the wood grain. For a real site, a high-quality image background
-               of an actual wood board is recommended for full realism. */
-            background-image: repeating-linear-gradient(
-                135deg,
-                rgba(0,0,0,0.03) 0px,
-                rgba(0,0,0,0.03) 2px,
-                transparent 2px,
-                transparent 4px
-            );
-            color: var(--deep-burn);
-            padding: 60px 20px;
-            text-align: center;
-            border-bottom: 8px solid #3e2723; /* Darker 'cut' edge */
-            box-shadow: inset 0 0 50px rgba(0,0,0,0.5); /* Deepen the wood tone */
-            position: relative;
-        }
-
-        /* Burn effect simulation */
-        .header-board h1 {
-            font-size: 3.5rem;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-weight: 700;
-            text-shadow: 
-                2px 2px 2px rgba(0,0,0,0.8), /* Inner shadow for 'burned in' depth */
-                0px 0px 15px rgba(184, 115, 51, 0.4); /* Faint heat glow/char charring */
-        }
-
-        /* Navigation */
+        /* Navigation */
         nav {
             background: var(--charcoal);
             color: var(--white);
-            padding: 1rem 5%;
+            padding: 1.2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -88,13 +51,7 @@
             font-weight: 700;
             text-decoration: none;
             letter-spacing: 1px;
-            font-family: 'Playfair Display', serif; /* Use serif for the burned brand logo */
         }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-        }
 
         .nav-links a {
             color: var(--white);
@@ -110,33 +67,13 @@
             color: var(--copper);
         }
 
-        /* Mobile Menu Toggle (Hamburger) */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            background: none;
-            border: none;
-            z-index: 1100;
-        }
-
-        .menu-toggle span {
-            display: block;
-            width: 25px;
-            height: 3px;
-            margin-bottom: 5px;
-            background-color: var(--white);
-            border-radius: 3px;
-            transition: 0.3s;
-        }
-
         /* Hero Section */
         header.hero {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
                         url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&q=80&w=1470');
             background-size: cover;
             background-position: center;
-            height: 70vh; /* Adjusted height slightly since wood header is now above */
+            height: 85vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -146,7 +83,7 @@
             padding: 0 20px;
         }
 
-        .hero h2 { font-size: 3.2rem; margin-bottom: 0.5rem; color: var(--white); }
+        .hero h1 { font-size: 3.8rem; margin-bottom: 0.5rem; color: var(--white); }
         .hero p { font-size: 1.3rem; max-width: 700px; margin-bottom: 2.5rem; font-weight: 300; }
 
         /* Walk-in Badge */
@@ -231,71 +168,31 @@
 
         .phone-link:hover { color: var(--copper); }
 
-        /* Functional Map */
+        /* Map Placeholder */
         .map-box {
-            height: 250px;
+            background: #333;
+            height: 200px;
             width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
             margin-top: 20px;
-            border: 2px solid #444;
-            border-radius: 4px;
-            overflow: hidden;
+            border: 1px dashed #555;
         }
 
-        .map-box iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-
         @media (max-width: 768px) {
-            .header-board h1 { font-size: 2.2rem; letter-spacing: 2px; }
-            .hero h2 { font-size: 2.5rem; }
-
-            /* Mobile Menu Styles */
-            .menu-toggle { display: flex; }
-
-            .nav-links {
-                display: none; /* Hidden by default on mobile */
-                flex-direction: column;
-                width: 100%;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                background-color: var(--charcoal);
-                padding: 20px 0;
-                border-bottom: 2px solid var(--copper);
-            }
-
-            .nav-links.active {
-                display: flex; /* Shown when toggled */
-            }
-
-            .nav-links a {
-                margin: 10px 0;
-                font-size: 1rem;
-                padding: 10px 5%;
-                width: 100%;
-                text-align: left;
-            }
-
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
             .service-table th:nth-child(2), .service-table td:nth-child(2) { display: none; } /* Hide description on mobile for space */
         }
     </style>
 </head>
 <body>
 
-    <div class="header-board">
-        <h1>Lucky Penny BarberShop</h1>
-    </div>
-
     <nav>
-        <a href="#" class="logo">LUCKY PENNY</a>
-        <button class="menu-toggle" aria-label="Toggle navigation">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <div class="nav-links" id="navLinks">
+        <a href="#" class="logo">LUCKY PENNY BARBERSHOP</a>
+        <div class="nav-links">
             <a href="#services">Services</a>
             <a href="#location">Hours & Location</a>
             <a href="tel:5550123456" style="color: var(--copper); font-weight: bold;">(555) 012-3456</a>
@@ -304,7 +201,7 @@
 
     <header class="hero">
         <div class="walk-in-badge">Walk-Ins Only</div>
-        <h2>No Appointment Needed.</h2>
+        <h1>No Appointment Needed.</h1>
         <p>Expert grooming for the modern gentleman. Just show up, and grab a seat.</p>
         <div class="address-hero">123 Barber Street, Downtown District</div>
     </header>
@@ -350,14 +247,7 @@
             <div class="footer-item">
                 <h3>Find Us</h3>
                 <p>123 Barber Street<br>Downtown District, ST 12345</p>
-                <div class="map-box">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.6175404165!2d-73.98785302341!3d40.748440471437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
+                <div class="map-box">Google Map Integration Here</div>
             </div>
             <div class="footer-item">
                 <h3>Our Hours</h3>
@@ -375,29 +265,6 @@
         <hr style="border: 0; border-top: 1px solid #444; margin-bottom: 25px;">
         <p style="font-size: 0.8rem; color: #777;">&copy; 2026 Lucky Penny Barbershop. All Rights Reserved.</p>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navLinks = document.getElementById('navLinks');
-
-            menuToggle.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-                
-                // Optional: Animate hamburger to X
-                menuToggle.classList.toggle('open');
-            });
-
-            // Close menu when a link is clicked
-            const links = navLinks.querySelectorAll('a');
-            links.forEach(link => {
-                link.addEventListener('click', function() {
-                    navLinks.classList.remove('active');
-                    menuToggle.classList.remove('open');
-                });
-            });
-        });
-    </script>
 
 </body>
 </html>
