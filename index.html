@@ -20,6 +20,11 @@
             padding: 0;
         }
 
+        /* UPGRADE 1: Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
@@ -31,9 +36,11 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* Navigation */
+        /* UPGRADE 2: Glass Navigation Effect */
         nav {
-            background: var(--charcoal);
+            background: rgba(44, 44, 44, 0.95); 
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px); /* Safari support */
             color: var(--white);
             padding: 1.2rem 5%;
             display: flex;
@@ -134,6 +141,22 @@
         }
 
         .service-table th { background: var(--charcoal); color: white; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+        
+        /* UPGRADE 3: Interactive Table Rows */
+        .service-table tr {
+            transition: background-color 0.3s ease;
+        }
+
+        .service-table tr:hover {
+            background-color: #fcfaf5;
+        }
+
+        .service-table tr:hover td:first-child {
+            color: var(--copper);
+            padding-left: 30px; /* Subtle "slide" effect */
+            transition: all 0.3s ease;
+        }
+
         .price { color: var(--copper); font-weight: 700; text-align: right; font-size: 1.2rem; }
 
         /* Footer / Contact */
@@ -164,9 +187,13 @@
             font-weight: 700;
             display: block;
             margin-top: 10px;
+            transition: transform 0.3s ease;
         }
 
-        .phone-link:hover { color: var(--copper); }
+        .phone-link:hover { 
+            color: var(--copper); 
+            transform: scale(1.05);
+        }
 
         /* Map Placeholder */
         .map-box {
@@ -184,10 +211,10 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .nav-links { display: none; }
-            .service-table th:nth-child(2), .service-table td:nth-child(2) { display: none; } /* Hide description on mobile for space */
+            .service-table th:nth-child(2), .service-table td:nth-child(2) { display: none; }
         }
     </style>
-   </head>
+</head>
 <body>
 
     <nav>
