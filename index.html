@@ -187,6 +187,17 @@
             .service-table th:nth-child(2), .service-table td:nth-child(2) { display: none; } /* Hide description on mobile for space */
         }
     </style>
+    .service-table tr:hover {
+    background-color: #f9f6f0; /* Very light cream */
+    transition: background-color 0.3s ease;
+}
+.service-table td {
+    transition: transform 0.2s ease;
+}
+.service-table tr:hover td:first-child {
+    transform: translateX(5px); /* Subtle nudge to the right */
+    color: var(--copper);
+}
 </head>
 <body>
 
