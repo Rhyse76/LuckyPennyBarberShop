@@ -53,14 +53,14 @@
         .walk-in-badge { background: var(--copper); color: white; padding: 12px 30px; border-radius: 50px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); }
         .address-hero { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.4rem; color: var(--gold-leaf); }
 
-        /* Services Section */
+        /* Services Section with Pop-Out Logic */
         .services { padding: 100px 10%; text-align: center; }
         .services h2 { margin-bottom: 40px; font-size: 2.8rem; }
 
         .service-table {
             width: 100%; max-width: 900px; margin: 0 auto;
             border-collapse: separate;
-            border-spacing: 0 10px;
+            border-spacing: 0 12px; /* Gap for the pop-out to work */
         }
 
         .service-table th { padding: 10px 25px; text-align: left; color: #777; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
@@ -72,7 +72,7 @@
 
         .service-row:hover {
             transform: scale(1.03) translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
             z-index: 10;
             position: relative;
         }
@@ -95,7 +95,7 @@
         .insta-btn { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
         .fb-btn { background-color: var(--facebook-blue); }
 
-        /* Footer */
+        /* Footer & Map Fix */
         footer { background: var(--charcoal); color: white; padding: 80px 5% 30px; text-align: center; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; max-width: 1200px; margin: 0 auto 60px; }
         .footer-item h3 { color: var(--copper); margin-bottom: 20px; text-transform: uppercase; }
@@ -103,7 +103,23 @@
         
         .phone-link, .social-footer { color: var(--white); text-decoration: none; font-size: 1.3rem; font-weight: 700; display: block; margin-top: 10px; transition: 0.3s; }
         .phone-link:hover, .social-footer:hover { color: var(--copper); transform: scale(1.05); }
-        .map-box { height: 350px; width: 100%; margin-top: 20px; border-radius: 8px; overflow: hidden; border: 2px solid #444; }
+
+        .map-box { 
+            height: 350px; 
+            width: 100%; 
+            margin-top: 20px; 
+            border-radius: 12px; 
+            overflow: hidden; 
+            border: 2px solid #444; 
+            background: #1a1a1a;
+        }
+
+        .map-box iframe {
+            width: 100% !important;
+            height: 100% !important;
+            border: none;
+            display: block;
+        }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
@@ -204,7 +220,11 @@
                 <h3>Find Us</h3>
                 <p>114 E Main St<br>Middleton, ID 83644</p>
                 <div class="map-box">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2884.2253896582496!2d-116.6186414!3d43.7058696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54ae376ec796836d%3A0x6a2d07525287e07a!2s114%20E%20Main%20St%2C%20Middleton%2C%20ID%2083644!5e0!3m2!1sen!2sus!4v1711484000000!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe 
+                        src="http://googleusercontent.com/maps.google.com/4" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
                 </div>
             </div>
             <div class="footer-item">
@@ -214,7 +234,7 @@
                 <p><strong>Sun - Mon:</strong> Closed</p>
             </div>
             <div class="footer-item">
-                <h3>Contact</h3>
+                <h3>Contact & Social</h3>
                 <a href="tel:+12086141408" class="phone-link"><i class="fas fa-phone"></i> (208) 614-1408</a>
                 <a href="https://www.instagram.com/luckypennybarbershop/" target="_blank" class="social-footer"><i class="fab fa-instagram"></i> Instagram</a>
                 <a href="https://www.facebook.com/search/top?q=the%20lucky%20penny%20barbershop" target="_blank" class="social-footer"><i class="fab fa-facebook-square"></i> Facebook</a>
