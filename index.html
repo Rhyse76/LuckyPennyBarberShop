@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucky Penny BarberShop | Walk-Ins Welcome</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --charcoal: #2c2c2c;
@@ -147,6 +148,29 @@
 
         .price { color: var(--copper); font-weight: 700; text-align: right; font-size: 1.2rem; }
 
+        /* Instagram Section */
+        .instagram-cta {
+            background-color: var(--white);
+            padding: 80px 10%;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .instagram-cta h2 { font-size: 2.2rem; margin-bottom: 15px; }
+        .insta-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 15px 35px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: transform 0.3s ease;
+        }
+        .insta-btn:hover { transform: scale(1.05); }
+        .insta-btn i { margin-right: 10px; font-size: 1.2rem; }
+
         footer {
             background: var(--charcoal);
             color: white;
@@ -167,7 +191,7 @@
         .footer-item h3 { color: var(--copper); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
         .footer-item p { font-size: 1.1rem; color: #ccc; line-height: 1.8; }
 
-        .phone-link {
+        .phone-link, .social-footer {
             color: var(--white);
             text-decoration: none;
             font-size: 1.5rem;
@@ -177,7 +201,7 @@
             transition: transform 0.3s ease;
         }
 
-        .phone-link:hover { 
+        .phone-link:hover, .social-footer:hover { 
             color: var(--copper); 
             transform: scale(1.05);
         }
@@ -257,13 +281,21 @@
         </table>
     </section>
 
+    <section class="instagram-cta">
+        <h2>Fresh Cuts Daily</h2>
+        <p>Check out our latest work and shop vibes on Instagram.</p>
+        <a href="https://www.instagram.com/luckypennybarbershop/" target="_blank" class="insta-btn">
+            <i class="fab fa-instagram"></i> @luckypennybarbershop
+        </a>
+    </section>
+
     <footer id="location">
         <div class="footer-grid">
             <div class="footer-item">
                 <h3>Find Us</h3>
                 <p>114 E Main St<br>Middleton, ID 83644</p>
                 <div class="map-box">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2884.20097753579!2d-116.62343722344292!3d43.70637224898955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54afb16e5951e155%3A0x9edd6cf91cd6f88f!2sThe%20Lucky%20Penny%20Barbershop!5e0!3m2!1sen!2sus!4v1774487269719!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2884.2882234038673!2d-116.6183344!3d43.7045339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54ae3705031b6713%3A0x6d90b9b3e6d8717!2s114%20E%20Main%20St%2C%20Middleton%2C%20ID%2083644!5e0!3m2!1sen!2sus!4v1711463200000!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
             <div class="footer-item">
@@ -272,6 +304,11 @@
                 <p><strong>Saturday:</strong> 8:00 AM - 4:00 PM</p>
                 <p><strong>Sun - Mon:</strong> Closed</p>
                 <p style="margin-top: 20px; font-size: 0.9rem; color: var(--copper);">*Last walk-in accepted 30 mins before close.</p>
+                
+                <h3 style="margin-top: 40px;">Social</h3>
+                <a href="https://www.instagram.com/luckypennybarbershop/" target="_blank" class="social-footer">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
             </div>
             <div class="footer-item">
                 <h3>Check the Wait</h3>
