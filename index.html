@@ -20,7 +20,7 @@
             padding: 0;
         }
 
-        /* UPGRADE 1: Smooth Scrolling */
+        /* Upgrade: Smooth Scrolling */
         html {
             scroll-behavior: smooth;
         }
@@ -36,11 +36,11 @@
             font-family: 'Playfair Display', serif;
         }
 
-        /* UPGRADE 2: Glass Navigation Effect */
+        /* Upgrade: Glass Navigation Effect */
         nav {
             background: rgba(44, 44, 44, 0.95); 
             backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px); /* Safari support */
+            -webkit-backdrop-filter: blur(8px);
             color: var(--white);
             padding: 1.2rem 5%;
             display: flex;
@@ -93,7 +93,6 @@
         .hero h1 { font-size: 3.8rem; margin-bottom: 0.5rem; color: var(--white); }
         .hero p { font-size: 1.3rem; max-width: 700px; margin-bottom: 2.5rem; font-weight: 300; }
 
-        /* Walk-in Badge */
         .walk-in-badge {
             background: var(--copper);
             color: white;
@@ -142,19 +141,13 @@
 
         .service-table th { background: var(--charcoal); color: white; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
         
-        /* UPGRADE 3: Interactive Table Rows */
+        /* Upgrade: Interactive Table Rows */
         .service-table tr {
             transition: background-color 0.3s ease;
         }
 
         .service-table tr:hover {
             background-color: #fcfaf5;
-        }
-
-        .service-table tr:hover td:first-child {
-            color: var(--copper);
-            padding-left: 30px; /* Subtle "slide" effect */
-            transition: all 0.3s ease;
         }
 
         .price { color: var(--copper); font-weight: 700; text-align: right; font-size: 1.2rem; }
@@ -195,17 +188,19 @@
             transform: scale(1.05);
         }
 
-        /* Map Placeholder */
+        /* Map Container - Ensuring your iframe stays responsive */
         .map-box {
-            background: #333;
-            height: 200px;
+            height: 350px;
             width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
             margin-top: 20px;
-            border: 1px dashed #555;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid #444;
+        }
+
+        .map-box iframe {
+            width: 100% !important;
+            height: 100% !important;
         }
 
         @media (max-width: 768px) {
@@ -274,7 +269,9 @@
             <div class="footer-item">
                 <h3>Find Us</h3>
                 <p>123 Barber Street<br>Downtown District, ST 12345</p>
-                <div class="map-box">Google Map Integration Here</div>
+                <div class="map-box">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2884.20097753579!2d-116.62343722344292!3d43.70637224898955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54afb16e5951e155%3A0x9edd6cf91cd6f88f!2sThe%20Lucky%20Penny%20Barbershop!5e0!3m2!1sen!2sus!4v1774487269719!5m2!1sen!2sus" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
             </div>
             <div class="footer-item">
                 <h3>Our Hours</h3>
