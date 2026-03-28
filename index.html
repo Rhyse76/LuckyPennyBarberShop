@@ -85,20 +85,21 @@
         .price { color: var(--copper); font-weight: 700; text-align: right; font-size: 1.4rem; }
         .shampoo-note { display: block; font-size: 0.85rem; color: #999; margin-top: 4px; font-weight: 400; }
 
-        /* Social CTA & Footer */
+        /* Social CTA Section */
         .social-cta { background-color: rgba(255, 255, 255, 0.7); padding: 80px 10%; text-align: center; backdrop-filter: blur(5px); }
         .social-btn { display: inline-block; padding: 15px 35px; color: white; text-decoration: none; border-radius: 5px; font-weight: 700; transition: transform 0.3s ease; margin: 10px; }
         .insta-btn { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
         .fb-btn { background-color: var(--facebook-blue); }
 
+        /* Footer */
         footer { background: var(--charcoal); color: white; padding: 80px 5% 30px; text-align: center; position: relative; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; max-width: 1200px; margin: 0 auto 60px; }
         .footer-item h3 { color: var(--copper); margin-bottom: 20px; text-transform: uppercase; }
         .phone-link, .social-footer { color: var(--white); text-decoration: none; font-size: 1.3rem; font-weight: 700; display: block; margin-top: 10px; transition: 0.3s; }
         .phone-link:hover, .social-footer:hover { color: var(--copper); transform: scale(1.05); }
 
-        .map-box { height: 350px; width: 100%; margin-top: 20px; border-radius: 12px; overflow: hidden; border: 2px solid #444; }
-        .map-box iframe { width: 100% !important; height: 100% !important; border: 0; }
+        .map-box { height: 350px; width: 100%; margin-top: 20px; border-radius: 12px; overflow: hidden; border: 2px solid #444; background: #1a1a1a; }
+        .map-box iframe { width: 100% !important; height: 100% !important; border: 0; display: block; }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
@@ -155,7 +156,6 @@
                     <td>Ages 12 & under.</td>
                     <td class="price">$25</td>
                 </tr>
-
                 <tr class="category-row"><td colspan="3">Beard Work</td></tr>
                 <tr class="service-row">
                     <td><strong>Express Beard Trim</strong></td>
@@ -167,16 +167,10 @@
                     <td>Detailed shaping with hot towel treatment.</td>
                     <td class="price">$25</td>
                 </tr>
-
                 <tr class="category-row"><td colspan="3">Shaves</td></tr>
                 <tr class="service-row">
                     <td><strong>Full Face Shave</strong></td>
                     <td>Traditional straight-razor shave with hot towels.</td>
-                    <td class="price">$30</td>
-                </tr>
-                <tr class="service-row">
-                    <td><strong>Head Shave</strong></td>
-                    <td>Smooth straight-razor shave for the scalp.</td>
                     <td class="price">$30</td>
                 </tr>
             </tbody>
@@ -201,7 +195,10 @@
                 <h3>Find Us</h3>
                 <p>114 E Main St<br>Middleton, ID 83644</p>
                 <div class="map-box">
-                    <iframe src="http://googleusercontent.com/maps.google.com/5" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2884.288220261314!2d-116.6186835234237!3d43.704533971099684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54af9391060939eb%3A0xc3f5f67b458880!2s114%20E%20Main%20St%2C%20Middleton%2C%20ID%2083644!5e0!3m2!1sen!2sus!4v1711652000000!5m2!1sen!2sus" 
+                        allowfullscreen="" loading="lazy">
+                    </iframe>
                 </div>
             </div>
             <div class="footer-item">
@@ -221,13 +218,14 @@
     </footer>
 
     <script>
-        // Gatekeeper
+        // Gatekeeper: Show announcement bar only if text is present
         const annText = document.getElementById('announcement-text');
         const annContainer = document.getElementById('announcement-container');
         if (annText && annText.innerText.trim() !== "") {
             annContainer.style.display = 'block';
         }
 
+        // Shears Animation
         const canvas = document.getElementById('particles');
         const ctx = canvas.getContext('2d');
         let particles = [];
@@ -247,15 +245,11 @@
         function drawRealisticShears(x, y, rotation, size) {
             ctx.save(); ctx.translate(x, y); ctx.rotate(rotation * Math.PI / 180);
             ctx.strokeStyle = "rgba(184, 115, 51, 0.2)"; ctx.lineWidth = 1.6; ctx.lineCap = "round";
-            // Blades
             ctx.beginPath(); ctx.moveTo(0, 0); ctx.bezierCurveTo(-size * 0.4, -size, -size * 0.2, -size * 1.8, 0, -size * 2.2); ctx.stroke();
             ctx.beginPath(); ctx.moveTo(0, 0); ctx.bezierCurveTo(size * 0.4, -size, size * 0.2, -size * 1.8, 0, -size * 2.2); ctx.stroke();
-            // Pivot
             ctx.beginPath(); ctx.arc(0, 0, 1.2, 0, Math.PI * 2); ctx.fillStyle = "rgba(184, 115, 51, 0.3)"; ctx.fill();
-            // Handles
             ctx.beginPath(); ctx.moveTo(-size * 0.1, size * 0.2); ctx.bezierCurveTo(-size * 0.7, size * 0.5, -size * 0.7, size * 1.7, -size * 0.2, size * 1.3); ctx.stroke();
             ctx.beginPath(); ctx.moveTo(size * 0.1, size * 0.2); ctx.bezierCurveTo(size * 0.9, size * 0.5, size * 0.9, size * 1.7, size * 0.4, size * 1.3); ctx.stroke();
-            // Tang
             ctx.beginPath(); ctx.moveTo(size * 0.9, size * 1.2); ctx.bezierCurveTo(size * 1.3, size * 1.2, size * 1.4, size * 1.6, size * 1.2, size * 1.8); ctx.stroke();
             ctx.restore();
         }
